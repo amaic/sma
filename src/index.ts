@@ -1,1 +1,3 @@
-console.debug("Hello world!");
+import StateManager from "./classes/StateManager";
+
+export { StateManager };
