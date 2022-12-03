@@ -1,0 +1,1 @@
+{"version":3,"file":"StateKeyScope.js","sourceRoot":"","sources":["../../src/classes/StateKeyScope.ts"],"names":[],"mappings":";;AAAA,iEAAyF;AAEzF,MAAqB,aAAa;IAI9B,YAAY,KAAa;QAFzB,mBAAc,GAAW,0CAAyB,CAAC;QAI/C,IAAI,CAAC,MAAM,GAAG,KAAK,CAAC;IACxB,CAAC;IAGD,IAAW,KAAK;QAEZ,OAAO,IAAI,CAAC,MAAM,CAAC;IACvB,CAAC;CACJ;AAdD,gCAcC"}

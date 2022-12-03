@@ -2,7 +2,7 @@ export default interface IStateKeyScope
 {
     IStateKeyScope: symbol;
 
-    get Scope(): string | null;
+    get Scope(): string;
 }
 
 export const IStateKeyScopeIdentitfier = Symbol("IStateKeyScope");
