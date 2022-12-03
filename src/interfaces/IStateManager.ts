@@ -1,5 +1,4 @@
 import StateKey from "../classes/StateKey";
-import { StateType } from "../types/StateType";
 
 export default interface IStateMananger
 {

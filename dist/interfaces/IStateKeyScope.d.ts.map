@@ -1,0 +1,1 @@
+{"version":3,"file":"IStateKeyScope.d.ts","sourceRoot":"","sources":["../../src/interfaces/IStateKeyScope.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,WAAW,cAAc;IAEnC,cAAc,EAAE,MAAM,CAAC;IAEvB,IAAI,KAAK,IAAI,MAAM,GAAG,IAAI,CAAC;CAC9B;AAED,eAAO,MAAM,yBAAyB,eAA2B,CAAC;AAElE,wBAAgB,gBAAgB,CAAC,QAAQ,EAAE,GAAG,GAAG,QAAQ,IAAI,cAAc,CAG1E"}

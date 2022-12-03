@@ -1,4 +1,5 @@
 import { StateType } from "../types/StateType";
+import IStateKeyScope from "./IStateKeyScope";
 
 export default interface IStateKey
 {
@@ -7,6 +8,10 @@ export default interface IStateKey
     get StateType(): StateType;
 
     get Key(): string;
+
+    get Scope(): IStateKeyScope | null;
+
+    get FullQualifiedName(): string;
 }
 
 export const IStateKeyIdentifier = Symbol("IStateKey");
