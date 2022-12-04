@@ -1,11 +1,10 @@
 import IStateKey from "../interfaces/IStateKey";
 import IStateKeyScope from "../interfaces/IStateKeyScope";
-import { StateType } from "../types/StateType";
 export default class StateKey implements IStateKey {
     IStateKey: symbol;
-    constructor(stateType: StateType, key: string, scope?: IStateKeyScope);
-    private _stateType;
-    get StateType(): StateType;
+    constructor(storageType: symbol, key: string, scope?: IStateKeyScope);
+    private _storageType;
+    get StorageType(): symbol;
     private _key;
     get Key(): string;
     private _scope;

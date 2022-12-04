@@ -1,9 +1,9 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-class InvalidStateType extends Error {
-    constructor(message = "Invalid state type.") {
-        super(message);
-    }
-}
-exports.default = InvalidStateType;
+// export default class InvalidStateType extends Error
+// {
+//     constructor(message: string = "Invalid state type.")
+//     {
+//         super(message);
+//     }
+// }
 //# sourceMappingURL=InvalidStateType.js.map

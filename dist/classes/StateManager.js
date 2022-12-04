@@ -12,37 +12,37 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const InvalidStateType_1 = __importDefault(require("../errors/InvalidStateType"));
+const StorageTypeAlreadyRegistered_1 = __importDefault(require("../errors/StorageTypeAlreadyRegistered"));
+const StorageTypeNotRegistered_1 = __importDefault(require("../errors/StorageTypeNotRegistered"));
 const IStateManager_1 = require("../interfaces/IStateManager");
-const StateType_1 = require("../types/StateType");
 class StateManager {
     constructor() {
         this.IStateManager = IStateManager_1.IStateManagerIdentifier;
+        this._storages = {};
+    }
+    _getStorage(storageType) {
+        const storage = this._storages[storageType];
+        if (storage == undefined)
+            throw new StorageTypeNotRegistered_1.default();
+        return storage;
+    }
+    RegisterStorage(storageType, storage) {
+        if (this._storages[storageType] != undefined)
+            throw new StorageTypeAlreadyRegistered_1.default();
+        this._storages[storageType] = storage;
     }
     SetState(stateKey, value) {
+        var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
-            switch (stateKey.StateType) {
-                case StateType_1.StateType.Local:
-                    if (value == null) {
-                        sessionStorage.removeItem(stateKey.Key);
-                    }
-                    else {
-                        sessionStorage.setItem(stateKey.Key, value);
-                    }
-                    break;
-                default:
-                    throw new InvalidStateType_1.default();
-            }
+            const storage = this._getStorage(stateKey.StorageType);
+            storage.SetState((_b = (_a = stateKey.Scope) === null || _a === void 0 ? void 0 : _a.Scope) !== null && _b !== void 0 ? _b : null, stateKey.Key, value);
         });
     }
     GetState(stateKey) {
+        var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
-            switch (stateKey.StateType) {
-                case StateType_1.StateType.Local:
-                    return sessionStorage.getItem(stateKey.Key);
-                default:
-                    throw new InvalidStateType_1.default();
-            }
+            const storage = this._getStorage(stateKey.StorageType);
+            return yield storage.GetState((_b = (_a = stateKey.Scope) === null || _a === void 0 ? void 0 : _a.Scope) !== null && _b !== void 0 ? _b : null, stateKey.Key);
         });
     }
 }
