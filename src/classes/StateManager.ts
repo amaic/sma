@@ -1,10 +1,10 @@
 import StorageTypeAlreadyRegistered from "../errors/StorageTypeAlreadyRegistered";
 import StorageTypeNotRegistered from "../errors/StorageTypeNotRegistered";
-import IStateMananger, { IStateManagerIdentifier } from "../interfaces/IStateManager";
+import IStateManager, { IStateManagerIdentifier } from "../interfaces/IStateManager";
 import IStateManagerStorage from "../interfaces/IStateManagerStorage";
 import StateKey from "./StateKey";
 
-export default class StateManager implements IStateMananger
+export default class StateManager implements IStateManager
 {
     IStateManager: symbol = IStateManagerIdentifier;
 
