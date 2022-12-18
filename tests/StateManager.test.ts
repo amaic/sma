@@ -1,19 +1,28 @@
-import StateKey from '../src/classes/StateKey';
-import StateManager from '../src/classes/StateManager';
-// import { StateType } from '../src/types/StateType';
+import { ServiceCollection } from "@amaic/dijs";
+import "@amaic/dijs-extensions-registration";
+import { IStateManager, IStateManagerIdentifier, IStateManagerStorageIdentifier, StateManager, StateManagerLocalStorage, StateManagerLocalStorageType } from "../src";
 
 describe("StateManager", () =>
 {
     test("create", () =>
     {
-        const dummyState = new StateKey(StateType.Local, "dummy");
+        const services = new ServiceCollection();
 
-        const stateManager = new StateManager();
+        services.AddTransientClass<IStateManager, typeof StateManager>(IStateManagerIdentifier, StateManager,
+            (classType, serviceProvider) => new classType(serviceProvider.GetRequiredServices(IStateManagerStorageIdentifier)));
 
-        stateManager.SetState(dummyState, "hello world");
+        services.AddTransientClass(IStateManagerStorageIdentifier, StateManagerLocalStorage);
 
-        stateManager.GetState(dummyState);
+        const serviceProvider = services.CreateServiceProvider();
 
-        
+        const stateManager = serviceProvider.GetRequiredService<IStateManager>(IStateManagerIdentifier);
+
+        const registeredStorageTypes = stateManager.GetRegisteredStorageTypes();
+
+        expect(stateManager).toBeInstanceOf(StateManager);
+
+        expect(registeredStorageTypes.length).toBe(1);
+
+        expect(registeredStorageTypes).toContain(StateManagerLocalStorageType);
     });
 });

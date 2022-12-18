@@ -3,6 +3,7 @@
  */
 export default interface IStateManagerStorage {
     IStateManagerStorage: symbol;
+    get StorageType(): symbol;
     /**
      * StateManager calls this method to store state.
      * @param scope unique identifier of scope; can be null

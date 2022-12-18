@@ -6,6 +6,11 @@ export default class StateManagerLocalStorage implements IStateManagerStorage
 
     constructor() { }
 
+    public get StorageType(): symbol
+    {
+        return StateManagerLocalStorageType;
+    }
+
     private _getFullQualifiedKey(scope: string | null, key: string): string
     {
         return scope == null ? key : `${ scope }.${ key }`;
@@ -30,6 +35,6 @@ export default class StateManagerLocalStorage implements IStateManagerStorage
 
         return window.localStorage.getItem(fullQualifiedKey);
     }
-
-
 }
+
+export const StateManagerLocalStorageType = Symbol("StateManagerLocalStorage");

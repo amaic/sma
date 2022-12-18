@@ -10,13 +10,6 @@ export default interface IStateManager
     IStateManager: symbol;
 
     /**
-     * Registeres a new storage.
-     * @param storageType Unique identifier of storage 
-     * @param storage storage implementation
-     */
-    RegisterStorage(storageType: symbol, storage: IStateManagerStorage): void;
-
-    /**
      * Save a certain state value or delete it by using null. 
      * @param stateKey unique identifier of state
      * @param value value to store or null to delete
@@ -28,6 +21,11 @@ export default interface IStateManager
      * @param stateKey the stored state or null if no state is available
      */
     GetState(stateKey: StateKey): Promise<string | null>;
+
+    /**
+     * Get list of registered storage types.
+     */
+    GetRegisteredStorageTypes(): symbol[];
 }
 
 /** Unique identifier of IStateManager */

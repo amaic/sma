@@ -3,11 +3,11 @@ import IStateManagerStorage from "../interfaces/IStateManagerStorage";
 import StateKey from "./StateKey";
 export default class StateManager implements IStateManager {
     IStateManager: symbol;
-    constructor();
+    constructor(storages: IStateManagerStorage[]);
     private _storages;
     private _getStorage;
-    RegisterStorage(storageType: symbol, storage: IStateManagerStorage): void;
     SetState(stateKey: StateKey, value: string | null): Promise<void>;
     GetState(stateKey: StateKey): Promise<string | null>;
+    GetRegisteredStorageTypes(): symbol[];
 }
 //# sourceMappingURL=StateManager.d.ts.map

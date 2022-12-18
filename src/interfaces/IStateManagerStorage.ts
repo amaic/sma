@@ -5,6 +5,8 @@ export default interface IStateManagerStorage
 {
     IStateManagerStorage: symbol;
 
+    get StorageType(): symbol;
+
     /**
      * StateManager calls this method to store state.
      * @param scope unique identifier of scope; can be null
@@ -19,12 +21,12 @@ export default interface IStateManagerStorage
      * @param key unique identifier of state
      * @returns value of state or null if state is not stored
      */
-    GetState(scope: string | null, key: string): Promise<string | null>;    
+    GetState(scope: string | null, key: string): Promise<string | null>;
 }
 
 export const IStateManagerStorageIdentifier = Symbol("IStateManagerStorage");
 
 export function IsIStateManagerStorage(instance: any): instance is IStateManagerStorage
-{ 
+{
     return instance?.IStateManagerStorage === IStateManagerStorageIdentifier;
 }

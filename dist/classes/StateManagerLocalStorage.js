@@ -9,10 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.StateManagerLocalStorageType = void 0;
 const IStateManagerStorage_1 = require("../interfaces/IStateManagerStorage");
 class StateManagerLocalStorage {
     constructor() {
         this.IStateManagerStorage = IStateManagerStorage_1.IStateManagerStorageIdentifier;
+    }
+    get StorageType() {
+        return exports.StateManagerLocalStorageType;
     }
     _getFullQualifiedKey(scope, key) {
         return scope == null ? key : `${scope}.${key}`;
@@ -36,4 +40,5 @@ class StateManagerLocalStorage {
     }
 }
 exports.default = StateManagerLocalStorage;
+exports.StateManagerLocalStorageType = Symbol("StateManagerLocalStorage");
 //# sourceMappingURL=StateManagerLocalStorage.js.map
