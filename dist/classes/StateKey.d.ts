@@ -1,7 +1,7 @@
 import IStateKey from "../interfaces/IStateKey";
 import IStateKeyScope from "../interfaces/IStateKeyScope";
 export default class StateKey implements IStateKey {
-    IStateKey: symbol;
+    readonly IStateKey: symbol;
     constructor(storageType: symbol, key: string, scope?: IStateKeyScope);
     private _storageType;
     get StorageType(): symbol;

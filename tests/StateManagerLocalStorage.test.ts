@@ -2,9 +2,9 @@ import { ServiceCollection } from "@amaic/dijs";
 import "@amaic/dijs-extensions-registration";
 import { IStateManager, IStateManagerIdentifier, IStateManagerStorage, IStateManagerStorageIdentifier, StateKey, StateManager, StateManagerLocalStorage, StateManagerLocalStorageType } from "../src";
 
-describe("StateManager", () =>
+describe("StateManagerLocalStorage", () =>
 {
-    test("create manager, set and get state", async () =>
+    test("set and get state", async () =>
     {
         const serviceCollection = new ServiceCollection();
 
@@ -17,13 +17,15 @@ describe("StateManager", () =>
 
         const stateManager = serviceProvider.GetRequiredService<IStateManager>(IStateManagerIdentifier);
 
-        const registeredStorageTypes = stateManager.GetRegisteredStorageTypes();
+        const skTest = new StateKey(StateManagerLocalStorageType, "test");
 
-        expect(stateManager).toBeInstanceOf(StateManager);
+        const skTestValue_original = "hello world!";
 
-        expect(registeredStorageTypes.length).toBe(1);
+        await stateManager.SetState(skTest, skTestValue_original);
 
-        expect(registeredStorageTypes).toContain(StateManagerLocalStorageType);
+        const skTestValue = await stateManager.GetState(skTest);
+
+        expect(skTestValue).toBe(skTestValue_original);
     });
 
 });

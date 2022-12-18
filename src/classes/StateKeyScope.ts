@@ -2,7 +2,7 @@ import IStateKeyScope, { IStateKeyScopeIdentitfier } from "../interfaces/IStateK
 
 export default class StateKeyScope implements IStateKeyScope
 {
-    IStateKeyScope: symbol = IStateKeyScopeIdentitfier;
+    readonly IStateKeyScope: symbol = IStateKeyScopeIdentitfier;
 
     constructor(scope: string)
     {

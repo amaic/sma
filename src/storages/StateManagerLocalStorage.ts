@@ -2,7 +2,7 @@ import IStateManagerStorage, { IStateManagerStorageIdentifier } from "../interfa
 
 export default class StateManagerLocalStorage implements IStateManagerStorage
 {
-    IStateManagerStorage: symbol = IStateManagerStorageIdentifier;
+    readonly IStateManagerStorage: symbol = IStateManagerStorageIdentifier;
 
     constructor() { }
 

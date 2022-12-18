@@ -2,7 +2,7 @@ import IStateManager from "../interfaces/IStateManager";
 import IStateManagerStorage from "../interfaces/IStateManagerStorage";
 import StateKey from "./StateKey";
 export default class StateManager implements IStateManager {
-    IStateManager: symbol;
+    readonly IStateManager: symbol;
     constructor(storages: IStateManagerStorage[]);
     private _storages;
     private _getStorage;

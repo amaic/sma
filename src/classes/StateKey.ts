@@ -3,7 +3,7 @@ import IStateKeyScope from "../interfaces/IStateKeyScope";
 
 export default class StateKey implements IStateKey
 {
-    IStateKey: symbol = IStateKeyIdentifier;
+    readonly IStateKey: symbol = IStateKeyIdentifier;
 
     constructor(storageType: symbol, key: string, scope?: IStateKeyScope)
     {

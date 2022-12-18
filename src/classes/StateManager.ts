@@ -5,7 +5,7 @@ import StateKey from "./StateKey";
 
 export default class StateManager implements IStateManager
 {
-    IStateManager: symbol = IStateManagerIdentifier;
+    readonly IStateManager: symbol = IStateManagerIdentifier;
 
     constructor(storages: IStateManagerStorage[])
     {

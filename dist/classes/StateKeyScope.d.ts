@@ -1,6 +1,6 @@
 import IStateKeyScope from "../interfaces/IStateKeyScope";
 export default class StateKeyScope implements IStateKeyScope {
-    IStateKeyScope: symbol;
+    readonly IStateKeyScope: symbol;
     constructor(scope: string);
     private _scope;
     get Scope(): string;
