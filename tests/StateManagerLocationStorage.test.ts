@@ -2,10 +2,21 @@ import { ServiceCollection } from "@amaic/dijs";
 import "@amaic/dijs-extensions-registration";
 import { IStateManager, IStateManagerIdentifier, IStateManagerStorage, IStateManagerStorageIdentifier, StateKey, StateManager, StateManagerLocationStorage, StateManagerLocationStorageType } from "../src";
 
+
 describe("StateManagerLocationStorage", () =>
 {
     test("set and get state", async () =>
     {
+        let searchValue = "";
+
+        delete (window as any).location;
+
+        (window as any).location =
+        {
+            get search(): string { return searchValue },
+            set search(value: string) { searchValue = value }
+        }
+
         const serviceCollection = new ServiceCollection();
 
         serviceCollection.AddTransientClass<IStateManager, typeof StateManager>(IStateManagerIdentifier, StateManager,
