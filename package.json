@@ -1,21 +1,25 @@
 {
-  "name": "amaic-sma",
+  "name": "@amaic/sma",
   "version": "0.1.0",
   "description": "State Manager",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "delete": "rimraf ./dist/",
     "build": "npm run delete && tsc --build",
     "watch": "tsc --watch",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amaic/sma.git"
+  },
   "keywords": [],
   "author": "Alexander Mauri",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amaic/sma/issues"
+  },
+  "homepage": "https://github.com/amaic/sma#readme",
   "devDependencies": {
     "@amaic/dijs": "^0.8.1",
     "@amaic/dijs-extensions-registration": "^0.2.1",
